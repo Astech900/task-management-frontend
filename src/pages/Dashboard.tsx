@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../store/slices/authSlice';
 import { setTasks, removeTask } from '../store/slices/taskSlice';
@@ -17,7 +17,7 @@ const Dashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState<any>(null);
   
-  const { execute: fetchTasks, loading: loadingTasks, error: fetchError } = useAxios<any[]>();
+  const { execute: fetchTasks, error: fetchError } = useAxios<any>();
   const { execute: deleteTask } = useAxios();
 
   useEffect(() => {

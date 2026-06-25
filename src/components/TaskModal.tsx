@@ -25,7 +25,7 @@ const TaskModal: React.FC<TaskModalProps> = ({ isOpen, onClose, taskToEdit }) =>
     dueDate: '',
   });
 
-  const { execute, loading, error } = useAxios<Task>();
+  const { execute, loading, error } = useAxios<any>();
   const dispatch = useDispatch();
 
   useEffect(() => {
