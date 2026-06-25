@@ -1,9 +1,13 @@
 import axios from 'axios';
 
-// The base URL relies on the Vite proxy we set up for development
-// and works identically when deployed if the API is on the same domain.
+// The base URL uses the Vite proxy in development,
+// but switches to your Railway backend automatically in production.
+const baseURL = import.meta.env.PROD 
+  ? 'https://task-management-backend-production-cf88.up.railway.app/api' 
+  : '/api';
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL,
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
